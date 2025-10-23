@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart City Services Portal</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #333;
+    }
+
+    /* Navbar */
+    header {
+      background: linear-gradient(90deg, #1E88E5, #1565C0);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffeb3b;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('smartcity.jpg') center/cover no-repeat;
+      height: 450px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease;
+    }
+    .hero-content h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    }
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .hero-content button {
+      padding: 12px 24px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      background: #43A047;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .hero-content button:hover {
+      background: #2e7031;
+      transform: scale(1.05);
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Services Section */
+    .services {
+      padding: 60px 50px;
+      text-align: center;
+      background: #fff;
+    }
+    .services h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #1565C0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .card h3 {
+      margin: 15px 0;
+      font-size: 20px;
+      color: #1E88E5;
+    }
+    .card p {
+      font-size: 15px;
+      color: #555;
+    }
+
+    /* Quick Info Section */
+    .info {
+      background: linear-gradient(90deg, #1565C0, #1E88E5);
+      color: white;
+      padding: 50px;
+      text-align: center;
+    }
+    .info h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .info .grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .info .card {
+      background: white;
+      color: #1565C0;
+      border-radius: 15px;
+      padding: 25px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .info .card:hover {
+      transform: translateY(-5px);
+    }
+    .info .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-radius: 50%;
+      color: white;
+    }
+    .icon-red { background: #e53935; }
+    .icon-blue { background: #1E88E5; }
+    .icon-yellow { background: #fbc02d; }
+    .icon-green { background: #43A047; }
+
+    /* Footer */
+    footer {
+      background: #0D47A1;
+      color: #ddd;
+      padding: 40px 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    footer h3 {
+      margin-top: 0;
+      color: #fff;
+      font-size: 18px;
+    }
+    footer p, footer a {
+      font-size: 14px;
+      color: #ccc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #ffeb3b;
+    }
+    .footer-bottom {
+      grid-column: 1/-1;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Smart City Portal</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Map</a>
+      <a href="#">Emergency</a>
+      <a href="#">Contact</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Smart City Services at Your Fingertips</h2>
+      <p>One-stop portal for transport, healthcare, utilities, and more</p>
+      <div>
+        <button>Explore Services</button>
+        <button>Report Issue</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>🚌 Transport</h3>
+        <p>Find bus, metro, and taxi routes easily.</p>
+      </div>
+      <div class="card">
+        <h3>🏥 Healthcare</h3>
+        <p>Locate hospitals and book appointments online.</p>
+      </div>
+      <div class="card">
+        <h3>💧 Utilities</h3>
+        <p>Manage bills and services for water, gas, and electricity.</p>
+      </div>
+      <div class="card">
+        <h3>🚮 Waste Management</h3>
+        <p>Track pickup schedules and recycling options.</p>
+      </div>
+      <div class="card">
+        <h3>📝 Complaints</h3>
+        <p>Submit and monitor issues with city services.</p>
+      </div>
+      <div class="card">
+        <h3>📍 City Map</h3>
+        <p>Explore hospitals, bus stops, and utility offices on the map.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Info -->
+  <section class="info">
+    <h2>Quick Info</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="icon icon-red">📞</div>
+        <h3>Emergency: 999</h3>
+        <p>Police, Fire, Ambulance</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-blue">📢</div>
+        <h3>Announcements</h3>
+        <p>Stay updated on city news & alerts</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-yellow">⚡</div>
+        <h3>Power Outage</h3>
+        <p>Real-time updates on electricity</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-green">🌦</div>
+        <h3>Weather</h3>
+        <p>Today: Sunny, 32°C</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <h3>About Us</h3>
+      <p>Smart City Portal is your digital gateway to essential services and city updates.</p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="#">Transport</a></p>
+      <p><a href="#">Healthcare</a></p>
+      <p><a href="#">Utilities</a></p>
+      <p><a href="#">Waste Management</a></p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Email: ajmiropu@gmail.com</p>
+      <p>Phone: +880 1234-567890</p>
+      <p>Address: Dhaka, Bangladesh</p>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Smart City Portal | Designed by Opu
+    </div>
+  </footer>
+</body>
+</html>
